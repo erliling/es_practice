@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #mydiv {
+        width: 200px;
+        height: 200px;
+        background-color: burlywood;
+      }
+    </style>
+    <script>
+      let fun = (a, b) => {
+        return a + b;
+      };
+      fun = (a, b) => a * b * a;
+      console.log(fun(1, 2));
+
+      let add = (n) => {
+        return n * 2;
+      };
+      console.log(add(3));
+
+      //shorter
+      let pow = (n) => n * n;
+      console.log(pow(3));
+
+      window.onload = function () {
+        let mydiv = document.getElementById("mydiv");
+        // console.log(mydiv);
+        // mydiv.addEventListener("click", function () {
+        //   let _this = this;
+        //   setTimeout(function () {
+        //     console.log(this);
+        //     _this.style.background = "pink";
+        //   }, 1000);
+        // });
+
+        mydiv.addEventListener("click", function () {
+          //   let _this = this;
+          setTimeout(() => {
+            console.log(this);
+            this.style.background = "pink";
+          }, 1000);
+        });
+
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // const result = arr.filter((item) => {
+        //   return item % 2 === 0;
+        // });
+        const result = arr.filter((item) => item % 2 === 0);
+        console.log(result);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+  </body>
+</html>
