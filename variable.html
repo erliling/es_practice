@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+      // let vs const
       let star = "1";
       //   let star = "2";
       const TEAM = ["UZI", "MXLG", "MING", "LETME"];
+      // can modify array
       TEAM.push("Meiko");
       //   console.log("abc");
 
+      // Destructuring Assignment
       let [s1, s2, s3, s4] = TEAM;
       console.log(s2);
 
+      // obj
       const myprofile = {
         name: "erli",
         age: "18",
@@ -26,6 +30,7 @@
       let { speak } = myprofile;
       speak();
 
+      // new symbol to define string, can have html tags and ${}
       let str = `I'm a string`;
       let str2 = `<ul>
                     <li>1</li>
@@ -37,6 +42,7 @@
       let mystr = `${name} is my favorite star!`;
       console.log(mystr);
 
+      // simple way to define obj, directly use name, change instead of name:name
       let change = function () {
         console.log("change");
       };

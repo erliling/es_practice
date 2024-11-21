@@ -13,6 +13,7 @@
       }
     </style>
     <script>
+      // arrow func
       let fun = (a, b) => {
         return a + b;
       };
@@ -24,39 +25,140 @@
       };
       console.log(add(3));
 
-      //shorter
+      //shorter arrow func
       let pow = (n) => n * n;
       console.log(pow(3));
 
       window.onload = function () {
         let mydiv = document.getElementById("mydiv");
         // console.log(mydiv);
-        // mydiv.addEventListener("click", function () {
+
+        // prev settimeout function
+        //mydiv.addEventListener("click", function () {
         //   let _this = this;
         //   setTimeout(function () {
+        //     //this = window 当前作用域
         //     console.log(this);
+        //     //_this = mydiv
+        //     console.log(_this);
         //     _this.style.background = "pink";
         //   }, 1000);
         // });
 
+        // new arrow settimeoout function
         mydiv.addEventListener("click", function () {
           //   let _this = this;
           setTimeout(() => {
+            //this = mydiv 外层作用域
             console.log(this);
             this.style.background = "pink";
           }, 1000);
         });
-
-        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        // const result = arr.filter((item) => {
-        //   return item % 2 === 0;
-        // });
-        const result = arr.filter((item) => item % 2 === 0);
-        console.log(result);
       };
+
+      // array filter even
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      // old func way
+      // const result = arr.filter((item) => {
+      //   return item % 2 === 0;
+      // });
+      // new arrow func way
+      const result = arr.filter((item) => item % 2 === 0);
+      console.log(result);
+
+      // destructing assignment
+      function connect({ host, username, password }) {
+        console.log(host);
+        console.log(username);
+        console.log(password);
+      }
+      connect({
+        host: "localhost",
+        username: "root",
+        password: "root",
+      });
+
+      // rest args
+      function fn(a, b, ...args) {
+        console.log(a);
+        console.log(b);
+        console.log(args);
+      }
+      fn(1, 2, 3, 4, 5, 6);
+
+      // generator func
+      // can't call gen() directly, need to use iterator.next()
+      function* gen() {
+        console.log("hello erli");
+      }
+      let iterator = gen();
+      // console.log(iterator.next());
+      iterator.next();
+
+      function one() {
+        setTimeout(() => {
+          //111回输出两次？？
+          console.log(111);
+          iterator2.next();
+        }, 1000);
+      }
+      function two() {
+        setTimeout(() => {
+          console.log(222);
+          iterator2.next();
+        }, 2000);
+      }
+      function three() {
+        setTimeout(() => {
+          console.log(333);
+          // iterator2.next();
+        }, 3000);
+      }
+      function* gen() {
+        yield one();
+        yield two();
+        yield three();
+      }
+      let iterator2 = gen();
+      // iterator2.next();
+      // iterator2.next();
+      // iterator2.next();
+
+      //generator example2
+      //上面的generator不会执行？？
+      function getUsers() {
+        setTimeout(() => {
+          let data = "user date";
+          iterator3.next(data);
+        }, 1000);
+      }
+      function getOrders() {
+        setTimeout(() => {
+          let data = "order date";
+          iterator3.next(data);
+        }, 1000);
+      }
+      function getGoods() {
+        setTimeout(() => {
+          let data = "goods date";
+          iterator3.next(data);
+        }, 1000);
+      }
+
+      function* gen() {
+        let users = yield getUsers();
+        console.log(users);
+        let orders = yield getOrders();
+        console.log(orders);
+        let goods = yield getGoods();
+        console.log(goods);
+      }
+
+      let iterator3 = gen();
     </script>
   </head>
   <body>
     <div id="mydiv"></div>
+    <!-- <div id="mydiv2"></div> -->
   </body>
 </html>
