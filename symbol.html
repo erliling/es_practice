@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // add up and down to unknown obj
+      // don't know if it has up and down func at first
+      // but able to add new up and down methods using symbol
+      // way1 to add symbol name methods
+      let game = {
+        up: function () {},
+        down: function () {},
+      };
+
+      let methods = {
+        up: Symbol(),
+        down: Symbol(),
+      };
+
+      game[methods.up] = function () {
+        console.log("lalala");
+      };
+      game[methods.down] = function () {
+        console.log("lololo");
+      };
+      console.log(game);
+
+      //way2 to add symbol name methods
+      let youxi = {
+        name: "myyouxi",
+        [Symbol("my1")]: function () {
+          console.log("my1");
+        },
+        [Symbol("my2")]: function () {
+          console.log("my2");
+        },
+      };
+      console.log(youxi);
+
+      // Symbol's properties, as a whole used as obj's properties
+      // Symbol.hasInstance
+      class Person {
+        // constructor
+        static [Symbol.hasInstance](param) {
+          //pass o to this method
+          console.log(param);
+          console.log("hello");
+          return true;
+        }
+      }
+      let o = { name: "erli" };
+      //   let o = new Person();
+      console.log(o instanceof Person);
+
+      //Symbol.isConcatSpreadable
+      //to control if the array can be concat or not
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6];
+      arr2[Symbol.isConcatSpreadable] = false;
+      console.log(arr1.concat(arr2));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const tfboys = ["1", "2", "3"];
+      // arrow func doesn't work
+      //   let chunwan = () => {
+      //     console.log(arguments);
+      //   };
+      function chunwan() {
+        // return array directly
+        // console.log(...arguments);
+        console.log(arguments);
+      }
+      //get whole arguments
+      chunwan(tfboys);
+      //get arguments array
+      //   chunwan(...tfboys);
+
+      //combine
+      const kuaizi = ["6", "7"];
+      const combined = [...tfboys, ...kuaizi];
+      console.log(combined);
+
+      //clone
+      const kuaizi2 = [...kuaizi];
+      console.log(kuaizi2);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -86,7 +86,7 @@
       }
       fn(1, 2, 3, 4, 5, 6);
 
-      // generator func
+      // generator func sample1
       // can't call gen() directly, need to use iterator.next()
       function* gen() {
         console.log("hello erli");
@@ -95,9 +95,11 @@
       // console.log(iterator.next());
       iterator.next();
 
+      // generator func sample2
       function one() {
         setTimeout(() => {
           //111回输出两次？？
+          // cz the name of gen is the same as the above sample
           console.log(111);
           iterator2.next();
         }, 1000);
@@ -114,27 +116,29 @@
           // iterator2.next();
         }, 3000);
       }
-      function* gen() {
+      function* gen2() {
         yield one();
         yield two();
         yield three();
       }
-      let iterator2 = gen();
-      // iterator2.next();
+
+      let iterator2 = gen2();
+      // only need to call once, cz one, two, three call inside already
+      iterator2.next();
       // iterator2.next();
       // iterator2.next();
 
-      //generator example2
-      //上面的generator不会执行？？
+      // generator example3
+      // pass data to iterator
       function getUsers() {
         setTimeout(() => {
-          let data = "user date";
+          let data = "users date";
           iterator3.next(data);
         }, 1000);
       }
       function getOrders() {
         setTimeout(() => {
-          let data = "order date";
+          let data = "orders date";
           iterator3.next(data);
         }, 1000);
       }
@@ -145,7 +149,8 @@
         }, 1000);
       }
 
-      function* gen() {
+      function* gen3() {
+        // yield get the data
         let users = yield getUsers();
         console.log(users);
         let orders = yield getOrders();
@@ -154,7 +159,8 @@
         console.log(goods);
       }
 
-      let iterator3 = gen();
+      let iterator3 = gen3();
+      iterator3.next();
     </script>
   </head>
   <body>
