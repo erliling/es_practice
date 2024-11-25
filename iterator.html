@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const bp = ["rose", "lisa", "jenny", "jisoo"];
+      for (let i of bp) {
+        console.log(i);
+      }
+      for (let j in bp) {
+        console.log(j);
+      }
+      let iterator = bp[Symbol.iterator]();
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+      console.log(iterator.next());
+
+      //customize next method
+      const girlsband = {
+        name: "bp",
+        girls: ["lisa", "jenny", "rose", "jisoo"],
+        [Symbol.iterator]() {
+          let index = 0;
+          // common func, save this value
+          let _this = this;
+
+          return {
+            //     next: function () {
+            //       //will cause dead recursive issue
+            //       //return { value: "abc", done: false };
+
+            //       //this changed in common func
+            //       //   console.log("this=" + _this.girlsband);
+
+            //       // here needs to write _this.girls.length, not girlband
+            //       if (index < _this.girls.length) {
+            //         const result = { value: _this.girls[index], done: false };
+            //         index++;
+            //         return result;
+            //       } else {
+            //         return { value: undefined, done: true };
+            //       }
+            //     },
+            //   };
+
+            //or use arrow func, then don't need _this
+            next: () => {
+              if (index < this.girls.length) {
+                const result = { value: this.girls[index], done: false };
+                index++;
+                return result;
+              } else {
+                return { value: undefined, done: true };
+              }
+            },
+          };
+        },
+      };
+      // use personal defined iterator for a object
+      for (let girl of girlsband) {
+        console.log(girl);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
