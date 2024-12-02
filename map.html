@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let m = new Map();
+      m.set("name", "erli");
+      m.set("speak", function () {
+        console.log("blablabla");
+      });
+
+      let key = {
+        hobby: "drawing",
+      };
+      m.set(key, ["watercolor", "comic", "oil painting"]);
+      console.log(m);
+
+      m.delete("name");
+      console.log(m);
+
+      console.log(m.get("speak"));
+      console.log(m.get(key));
+
+      for (let i of m) {
+        console.log(i);
+      }
+      for (let j in m) {
+        console.log(j);
+      }
+
+      for (let k in [3, 5, 6, 7, 8, 9]) {
+        console.log(k);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
