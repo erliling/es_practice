@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Student {
+        static name = "student";
+        constructor(id, name) {
+          this.id = id;
+          this.name = name;
+        }
+
+        speak() {
+          console.log("I'm a student");
+        }
+
+        static comment() {
+          console.log("I can change the world");
+        }
+      }
+
+      class CollegeStudent extends Student {
+        constructor(id, name, grade, job) {
+          super(id, name);
+          this.grade = grade;
+          this.job = job;
+        }
+
+        makefriend() {
+          console.log("I can make friend!");
+        }
+
+        speak() {
+          //   super();
+          console.log("I can't call super");
+        }
+
+        get name() {
+          console.log("I'm called");
+        }
+
+        set name(value) {
+          console.log("I'm setted");
+        }
+      }
+
+      let s = new Student(123, "erli");
+      console.log(s.name);
+      console.log(Student.name);
+      Student.comment();
+
+      let cs = new CollegeStudent(123, "somi", "first", "ta");
+      cs.name;
+      cs.makefriend();
+      cs.speak();
+      //   cs.name;
+    </script>
+  </head>
+  <body></body>
+</html>
