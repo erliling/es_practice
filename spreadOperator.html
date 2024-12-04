@@ -29,6 +29,36 @@
       //clone
       const kuaizi2 = [...kuaizi];
       console.log(kuaizi2);
+
+      //es9 rest
+      function connect({ host, port, ...args }) {
+        console.log(host);
+        console.log(port);
+        console.log(args);
+      }
+      connect({
+        host: "127.0.0.1",
+        port: 8080,
+        username: "root",
+        password: "root",
+        type: "master",
+      });
+
+      //es9 spreadoperator
+      const erli1 = {
+        name: "erli",
+      };
+      const erli2 = {
+        id: "erli",
+      };
+      const erli3 = {
+        sex: "erli",
+      };
+      const erli4 = {
+        type: "erli",
+      };
+      const combinedErli = { ...erli1, ...erli2, ...erli3, ...erli4 };
+      console.log(combinedErli);
     </script>
   </head>
   <body></body>

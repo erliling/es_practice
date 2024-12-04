@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const school = {
+        name: "erli",
+        cities: ["bj", "sh", "nc", "sf"],
+        hobbies: ["drawing", "programming", "hiking"],
+      };
+
+      console.log(Object.keys(school));
+      console.log(Object.values(school));
+      console.log(Object.entries(school));
+      const m = new Map(Object.entries(school));
+      console.log(m);
+      console.log(m.get("cities"));
+
+      console.log(Object.getOwnPropertyDescriptors(school));
+    </script>
+  </head>
+  <body></body>
+</html>

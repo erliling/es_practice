@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //fulfilled
+      async function fn() {
+        // return "hello";
+        return;
+      }
+      async function fn2() {
+        throw new Error("error!!");
+      }
+      //pending
+      async function fn3() {
+        return new Promise((resolve, reject) => {
+          reject("failure!!");
+        });
+      }
+      async function fn4() {
+        return new Promise((resolve, reject) => {
+          reject("failed!");
+          //   resolve("erli");
+          //   return "erli";
+        });
+      }
+      //   const result = fn2();
+      //   console.log(result);
+
+      const result2 = fn4();
+      result2.then(
+        (value) => {
+          console.log(value);
+        },
+        (reason) => {
+          console.warn(reason);
+        }
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
