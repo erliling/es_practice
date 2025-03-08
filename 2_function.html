@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #mydiv {
+        width: 200px;
+        height: 200px;
+        background-color: burlywood;
+      }
+    </style>
+    <script>
+      // arrow func
+      let fun = (a, b) => {
+        return a + b;
+      };
+
+      let add = (n) => {
+        return n * 2;
+      };
+      console.log(add(3));
+
+      //shorter arrow func
+      fun = (a, b) => a * b * a;
+      console.log(fun(1, 2));
+
+      let pow = (n) => n * n;
+      console.log(pow(3));
+
+      window.onload = function () {
+        let mydiv = document.getElementById("mydiv");
+        // console.log(mydiv);
+
+        // prev settimeout function
+        //mydiv.addEventListener("click", function () {
+        //   let _this = this;
+        //   setTimeout(function () {
+        //     //this = window 当前作用域
+        //     console.log(this);
+        //     //_this = mydiv
+        //     console.log(_this);
+        //     _this.style.background = "pink";
+        //   }, 1000);
+        // });
+
+        // new arrow settimeoout function
+        mydiv.addEventListener("click", function () {
+          //   let _this = this;
+          setTimeout(() => {
+            //this = mydiv 外层作用域
+            console.log(this);
+            this.style.background = "pink";
+          }, 1000);
+        });
+      };
+
+      // array filter even
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      // old func way
+      // const result = arr.filter((item) => {
+      //   return item % 2 === 0;
+      // });
+      // new arrow func way
+      const result = arr.filter((item) => item % 2 === 0);
+      console.log(result);
+
+      // destructing assignment
+      function connect({ host, username, password }) {
+        console.log(host);
+        console.log(username);
+        console.log(password);
+      }
+      connect({
+        host: "localhost",
+        username: "root",
+        password: "root",
+      });
+
+      // rest args
+      function fn(a, b, ...args) {
+        console.log(a);
+        console.log(b);
+        console.log(args);
+      }
+      fn(1, 2, 3, 4, 5, 6);
+
+      // generator func sample1
+      // can't call gen() directly, need to use iterator.next()
+      function* gen() {
+        console.log("hello erli");
+      }
+      let iterator = gen();
+      // console.log(iterator.next());
+      iterator.next();
+
+      // generator func sample2
+      function one() {
+        setTimeout(() => {
+          //111回输出两次？？
+          // cz the name of gen is the same as the above sample
+          console.log(111);
+          iterator2.next();
+        }, 1000);
+      }
+      function two() {
+        setTimeout(() => {
+          console.log(222);
+          iterator2.next();
+        }, 2000);
+      }
+      function three() {
+        setTimeout(() => {
+          console.log(333);
+          // iterator2.next();
+        }, 3000);
+      }
+      function* gen2() {
+        yield one();
+        yield two();
+        yield three();
+      }
+
+      let iterator2 = gen2();
+      // only need to call once, cz one, two, three call inside already
+      iterator2.next();
+      // iterator2.next();
+      // iterator2.next();
+
+      // generator example3
+      // pass data to iterator
+      function getUsers() {
+        setTimeout(() => {
+          let data = "users date";
+          iterator3.next(data);
+        }, 1000);
+      }
+      function getOrders() {
+        setTimeout(() => {
+          let data = "orders date";
+          iterator3.next(data);
+        }, 1000);
+      }
+      function getGoods() {
+        setTimeout(() => {
+          let data = "goods date";
+          iterator3.next(data);
+        }, 1000);
+      }
+
+      function* gen3() {
+        // yield get the data
+        let users = yield getUsers();
+        console.log(users);
+        let orders = yield getOrders();
+        console.log(orders);
+        let goods = yield getGoods();
+        console.log(goods);
+      }
+
+      let iterator3 = gen3();
+      iterator3.next();
+    </script>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+    <!-- <div id="mydiv2"></div> -->
+  </body>
+</html>

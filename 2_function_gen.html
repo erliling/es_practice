@@ -13,79 +13,6 @@
       }
     </style>
     <script>
-      // arrow func
-      let fun = (a, b) => {
-        return a + b;
-      };
-      fun = (a, b) => a * b * a;
-      console.log(fun(1, 2));
-
-      let add = (n) => {
-        return n * 2;
-      };
-      console.log(add(3));
-
-      //shorter arrow func
-      let pow = (n) => n * n;
-      console.log(pow(3));
-
-      window.onload = function () {
-        let mydiv = document.getElementById("mydiv");
-        // console.log(mydiv);
-
-        // prev settimeout function
-        //mydiv.addEventListener("click", function () {
-        //   let _this = this;
-        //   setTimeout(function () {
-        //     //this = window 当前作用域
-        //     console.log(this);
-        //     //_this = mydiv
-        //     console.log(_this);
-        //     _this.style.background = "pink";
-        //   }, 1000);
-        // });
-
-        // new arrow settimeoout function
-        mydiv.addEventListener("click", function () {
-          //   let _this = this;
-          setTimeout(() => {
-            //this = mydiv 外层作用域
-            console.log(this);
-            this.style.background = "pink";
-          }, 1000);
-        });
-      };
-
-      // array filter even
-      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-      // old func way
-      // const result = arr.filter((item) => {
-      //   return item % 2 === 0;
-      // });
-      // new arrow func way
-      const result = arr.filter((item) => item % 2 === 0);
-      console.log(result);
-
-      // destructing assignment
-      function connect({ host, username, password }) {
-        console.log(host);
-        console.log(username);
-        console.log(password);
-      }
-      connect({
-        host: "localhost",
-        username: "root",
-        password: "root",
-      });
-
-      // rest args
-      function fn(a, b, ...args) {
-        console.log(a);
-        console.log(b);
-        console.log(args);
-      }
-      fn(1, 2, 3, 4, 5, 6);
-
       // generator func sample1
       // can't call gen() directly, need to use iterator.next()
       function* gen() {
@@ -95,7 +22,7 @@
       // console.log(iterator.next());
       iterator.next();
 
-      // generator func sample2
+      // generator+settimeout func sample2
       function one() {
         setTimeout(() => {
           //111回输出两次？？

@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .mytest {
+        width: 100px;
+        height: 100px;
+        background-color: bisque;
+      }
+    </style>
     <script>
       const tfboys = ["1", "2", "3"];
-      // arrow func doesn't work
-      //   let chunwan = () => {
-      //     console.log(arguments);
-      //   };
+      // arrow func doesn't work, "arguments is not defined"
+      // let chunwan = () => {
+      //   console.log(arguments);
+      // };
       function chunwan() {
         // return array directly
         // console.log(...arguments);
@@ -21,7 +28,7 @@
       //get arguments array
       //   chunwan(...tfboys);
 
-      //combine
+      //combine array
       const kuaizi = ["6", "7"];
       const combined = [...tfboys, ...kuaizi];
       console.log(combined);
@@ -44,7 +51,7 @@
         type: "master",
       });
 
-      //es9 spreadoperator
+      //es9 spreadoperator, combine obj
       const erli1 = {
         name: "erli",
       };
@@ -59,7 +66,20 @@
       };
       const combinedErli = { ...erli1, ...erli2, ...erli3, ...erli4 };
       console.log(combinedErli);
+
+      window.onload = function () {
+        // convert fake array to real
+        // has to be inside window.onload, otherwise divs will be []
+        const divs = document.querySelectorAll("div");
+        const divArr = [...divs];
+        console.log(divArr);
+      };
     </script>
   </head>
-  <body></body>
+  <body>
+    <div id="mytest"></div>
+    <div class="mytest"></div>
+    <div class="mytest"></div>
+    <button id="btn01"></button>
+  </body>
 </html>
