@@ -56,6 +56,14 @@ const p = new Promise(function (resolve, reject) {
         resolve('ok3');
         // reject('error');
     });
+  }).then(value => {
+    //this is what to return
+    console.log(value)
+    return new Promise ((resolve, reject)=>{
+        //this is for the next .then if there're more
+        resolve('ok4');
+        // reject('error');
+    });
   });
 
   console.log(result);

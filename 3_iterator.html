@@ -7,6 +7,7 @@
     <title>Document</title>
     <script>
       const bp = ["rose", "lisa", "jenny", "jisoo"];
+      //original method for iteration
       // content
       for (let i of bp) {
         console.log(i);
@@ -15,12 +16,16 @@
       for (let j in bp) {
         console.log(j);
       }
+
+      //new method for iteration, async
       let iterator = bp[Symbol.iterator]();
+      console.log("start");
       console.log(iterator.next());
       console.log(iterator.next());
       console.log(iterator.next());
       console.log(iterator.next());
       console.log(iterator.next());
+      console.log("end");
 
       //customize next method
       const girlsband = {
@@ -53,11 +58,12 @@
             //or use arrow func, then don't need _this
             next: () => {
               if (index < this.girls.length) {
-                const result = { value: this.girls[index], done: false };
+                // const result = { value: "this.girls[index]", done: false };
+                const result = { value: "erli", done: false };
                 index++;
                 return result;
               } else {
-                return { value: undefined, done: true };
+                return { value: "undefined", done: true };
               }
             },
           };
