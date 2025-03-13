@@ -9,11 +9,15 @@
       function main(config) {
         // const dbHost = config && config.db && config.db.host;
         // const dbHost = config.db.host;
+        // won't cause undefined error
         const dbHost = config?.db?.host;
         console.log(dbHost);
       }
 
-      main();
+      let myconfig = { db: { host: "8000" } };
+      main(myconfig);
+      let myconfig2 = {};
+      main(myconfig2);
     </script>
   </head>
   <body></body>

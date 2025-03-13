@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      import("./m1.js").then((module) => {
-        // console.log(module);
-        module.speak();
-      });
+      // window obj
+      console.log(globalThis);
+      console.log(globalThis.history);
     </script>
   </head>
   <body></body>
