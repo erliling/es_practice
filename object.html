@@ -14,22 +14,30 @@
 
       console.log(Object.keys(school));
       console.log(Object.values(school));
+      // array of array
       console.log(Object.entries(school));
       const m = new Map(Object.entries(school));
+      // key and value pairs
       console.log(m);
       console.log(m.get("cities"));
 
+      // It allows for the examination of the precise configuration of all the
+      //object's properties, including non-enumerable and symbol-keyed properties
       console.log(Object.getOwnPropertyDescriptors(school));
 
       // fromentries vs entries
       const arr = [
         ["name", "erli", "chinese", "happy", "yeah"],
         ["age", 18],
-        ["shcool", "middle school"],
+        ["school", "middle school"],
       ];
       const result2 = Object.fromEntries(arr);
       console.log(arr);
+      // identify key to value pairs, but only pick the first value
       console.log(result2);
+      // treat the key as value as well
+      result3 = Object.entries(arr);
+      console.log(result3);
 
       const m2 = new Map();
       m2.set("name", "erli");
@@ -37,6 +45,8 @@
       const result = Object.fromEntries(m2);
       console.log(m2);
       console.log(result);
+      result3 = Object.entries(m2);
+      console.log(result3); // empty
     </script>
   </head>
   <body></body>

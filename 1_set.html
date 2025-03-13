@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+      // unique
       let arr = [1, 1, 2, 3, 4, 5, 2, 3, 7, 9, 10, 1];
       let arr_nodup = [...new Set(arr)];
       console.log(arr_nodup);
 
+      // intersect
       let arr2 = [4, 5, 6, 7, 6];
       //   let result = [...new Set(arr)].filter((item) => {
       //     let s2 = new Set(arr2);
@@ -22,11 +24,13 @@
       let union = [...new Set([...arr, ...arr2])];
       console.log(union);
 
+      // delete items interesect items
       let result2 = [...new Set(arr)].filter(
         (item) => !new Set(arr2).has(item)
       );
       console.log(result2);
 
+      //can do iteration
       for (i of new Set(arr)) {
         console.log(i);
       }
