@@ -8,7 +8,9 @@
     <script>
       // dot is every character except \n
       let str = '<a href="https://www.youtube.com/watch?v=Sqa8Zo2XWc4">AI</a>';
+      // old way
       //   const reg = /<a href="(.*)">(.*)<\/a>/;
+      // new way, ?<url> as a variable
       const reg = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
       //   const reg = /\byoutube\b/;
       const result = reg.exec(str);
@@ -16,16 +18,22 @@
       console.log(result.groups.url);
       console.log(result.groups.text);
       console.log(result.groups);
+      console.log(result);
 
-      let str2 = "sfajklj2351875897jaskkjfksjfalerli555erlialajd";
+      let str2 = "sfajklji2351875897jaskkjfksjfal666erli555erlialajd";
+      //?=erli, see if erli is after digits
+      //check from content after
       const reg2 = /\d+(?=erli)/;
       const result2 = reg2.exec(str2);
       console.log(result2);
 
+      //?<=i, see if i is before digits
+      //check from content before
       const reg3 = /(?<=i)\d+/;
       const result3 = reg3.exec(str2);
       console.log(result3);
 
+      //(.*?)
       let filmStr = `
       <ul>
         <li>
@@ -41,12 +49,14 @@
 
       //   const reg4 = /<li>\s+<a>(.*?)<\/a>/;
       //   const reg4 = /<li>\s+<a>(.*?)<\/a>\s+<p>(.*?)<\/p>/;
+      // add /s, . will match any character
       const reg4 = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs;
       //   const result4 = reg4.exec(filmStr);
       let result5;
       let data = [];
       while ((result5 = reg4.exec(filmStr))) {
         data.push({ title: result5[1], time: result5[2] });
+        console.log(result5[1], result5[2]);
         console.log(result5);
       }
       console.log(data);

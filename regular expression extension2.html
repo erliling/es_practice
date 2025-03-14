@@ -30,10 +30,17 @@
       // console.log(data);
 
       result5 = filmStr.matchAll(reg4);
+      let data = [];
+      // console.log(result5);
       for (let v of result5) {
         console.log(v);
+        data.push({ name: v[1], screentime: v[2] });
       }
 
+      console.log(data);
+      console.log([...data]);
+      console.log([data[0].name]);
+      // console.log(result5);
       const arr = [...result5];
       console.log(arr);
     </script>
