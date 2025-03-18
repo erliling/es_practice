@@ -12,10 +12,12 @@
         hobbies: ["drawing", "programming", "hiking"],
       };
 
+      console.log("-------obj keys values entries-------");
       console.log(Object.keys(school));
       console.log(Object.values(school));
-      // array of array
+      // obj to array, array of array
       console.log(Object.entries(school));
+      console.log("-------map entries-------");
       const m = new Map(Object.entries(school));
       // key and value pairs
       console.log(m);
@@ -25,12 +27,14 @@
       //object's properties, including non-enumerable and symbol-keyed properties
       console.log(Object.getOwnPropertyDescriptors(school));
 
+      console.log("-------obj arr fromentries entries -------");
       // fromentries vs entries
       const arr = [
         ["name", "erli", "chinese", "happy", "yeah"],
         ["age", 18],
         ["school", "middle school"],
       ];
+      // array to obj
       const result2 = Object.fromEntries(arr);
       console.log(arr);
       // identify key to value pairs, but only pick the first value
@@ -39,14 +43,15 @@
       result3 = Object.entries(arr);
       console.log(result3);
 
+      console.log("-------map fromentries map entries-------");
       const m2 = new Map();
       m2.set("name", "erli");
       m2.set("age", "18");
-      const result = Object.fromEntries(m2);
+      const result = Object.fromEntries(m2); // map can convert to obj
       console.log(m2);
       console.log(result);
       result3 = Object.entries(m2);
-      console.log(result3); // empty
+      console.log(result3); // empty, map can't convert to array
     </script>
   </head>
   <body></body>
