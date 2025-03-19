@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      localStorage.setItem("name", "erli");
+      console.log(localStorage.getItem("name"));
+      localStorage.removeItem("name");
+      console.log(localStorage.getItem("name")); //null
+
+      let cart = {
+        productNum: 0,
+        //object's attr can be obj
+        product1: {
+          num: 0,
+          name: "haha1",
+          price: 100,
+        },
+        product2: {
+          num: 0,
+          name: "haha2",
+          price: 200,
+        },
+        totalPrice: 0,
+        //object's attr can be function
+        showCart: function () {
+          console.log(`current product number: ${cart.productNum}`);
+        },
+      };
+      localStorage.setItem("cart", cart); //cart converts to string, not right
+      console.log(localStorage.getItem("cart"));
+    </script>
+  </head>
+  <body></body>
+</html>

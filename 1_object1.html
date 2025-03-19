@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let cart = {
+        productNum: 0,
+        //object's attr can be obj
+        product1: {
+          num: 0,
+          name: "haha1",
+          price: 100,
+        },
+        product2: {
+          num: 0,
+          name: "haha2",
+          price: 200,
+        },
+        totalPrice: 0,
+        //object's attr can be function
+        showCart: function () {
+          console.log(`current product number: ${cart.productNum}`);
+        },
+      };
+      cart.showCart();
+    </script>
+  </head>
+  <body></body>
+</html>
